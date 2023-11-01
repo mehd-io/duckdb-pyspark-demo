@@ -19,7 +19,7 @@ duckspark: build
 	docker run -it --rm -v "$(PWD)":/app -v $(PWD)/data:/data $(IMAGE_NAME) /bin/bash -c "time python /app/$(SCRIPT)"
 
 pyspark:
-	docker run -it -v $(PWD)/$(SCRIPT):/app/$(SCRIPT) -v $(PWD)/data:/app/data apache/spark-py:v3.4.0 \
+	docker run -it -v $(PWD)/$(SCRIPT):/app/$(SCRIPT) -v $(PWD)/data:/data apache/spark-py:v3.4.0 \
     /bin/bash -c "time /opt/spark/bin/spark-submit --conf spark.executor.memory=10g --conf spark.driver.memory=12g /app/$(SCRIPT)"
 
 

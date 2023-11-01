@@ -2,7 +2,7 @@
 This repository serves as a practical demonstration of leveraging the DuckDB engine while maintaining the same PySpark code pipeline `duckspark.py`, thanks to DuckDB's compatibility with the PySpark API. It provides a comparative analysis of a standalone PySpark pipeline versus a PySpark pipeline powered by DuckDB, using an openly available dataset. The entire setup is containerized for ease of deployment and quick startup.
 
 ## Disclaimer
-⚠️ Please note that this feature is experimental. For details on what's available from the PySpark API, please visit DuckDB's GitHub repository.
+⚠️ Please note that this feature is experimental. For details on what's available from the PySpark API, please visit [DuckDB's GitHub repository](https://github.com/duckdb/duckdb/blob/main/tools/pythonpkg/duckdb/experimental).
 
 ## Getting Started
 ### Prerequisites
@@ -25,9 +25,9 @@ make duckspark
 
 result:
 ```
-real	0m0.260s
-user	0m0.561s
-sys	    0m0.040s
+real    0m1.225s
+user    0m1.970s
+sys     0m0.160s
 ```
 
 **Standalone PySpark**
@@ -35,11 +35,11 @@ sys	    0m0.040s
 make pyspark
 ```
 
-result : 
+result :
 ```
-real	0m2.239s
-user	0m4.520s
-sys	0m0.353s
+real    0m5.411s
+user    0m12.700s
+sys     0m1.221s
 ```
 
 These commands will execute the respective pipelines and display the time taken for each process, allowing you to compare the performance between the pure PySpark implementation and the DuckDB version.

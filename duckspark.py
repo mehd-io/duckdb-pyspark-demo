@@ -16,15 +16,18 @@ spark = SparkSession.builder.appName("HackerNewsAuthorStats").getOrCreate()
 
 df = spark.read.parquet("/data/hacker_news_2021_2022.parquet")
 
-# perform the transformation using dataframe style
+# Does users who post more stories tend to have higher or lower average scores ?
 result = (
-    df.filter((col("type") == "story"))
+    df.filter((col("type") == "story") & (col("by") != "NULL"))
     .groupBy(col("by"))
     .agg(
         avg(col("score")).alias("average_score"),
         count(col("id")).alias("number_of_stories"),
     )
-    .orderBy(col("average_score").desc())
+    .filter(col("number_of_stories") > 1)  # Filter users with more than one story
+    .orderBy(
+        col("number_of_stories").desc(), col("average_score").desc()
+    )  # Order by the number of stories first, then by average score
     .limit(10)
 )
 
