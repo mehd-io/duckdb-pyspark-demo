@@ -1,6 +1,8 @@
 # DuckDB & Pyspark Demo
 This repository serves as a practical demonstration of leveraging the DuckDB engine while maintaining the same PySpark code pipeline `duckspark.py`, thanks to DuckDB's compatibility with the PySpark API. It provides a comparative analysis of a standalone PySpark pipeline versus a PySpark pipeline powered by DuckDB, using an openly available dataset. The entire setup is containerized for ease of deployment and quick startup.
 
+Read the full blog post [here](https://motherduck.com/blog/making-pyspark-code-faster-with-duckdb/).
+
 ## Disclaimer
 ⚠️ Please note that this feature is experimental. For details on what's available from the PySpark API, please visit [DuckDB's GitHub repository](https://github.com/duckdb/duckdb/blob/main/tools/pythonpkg/duckdb/experimental).
 
